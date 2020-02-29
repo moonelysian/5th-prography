@@ -20,14 +20,14 @@ describe('test for ChallengeController', () => {
       .set('x-access-token', `${process.env.TEST_USER_TOKEN}`)
       .send(payload);
     expect(res.status).toEqual(200);
-    expect(res.body.data).toMatchObject({ baseChallenge: payload })
+    // expect(res.body.data).toMatchObject({ baseChallenge: payload })
   })
-  // test('getChallenges', async () => {
-  //   const res = await supertest(app)
-  //     .get('/challenges')
-  //     .set('x-access-token', `${process.env.TEST_USER_TOKEN}`);
-  //   expect(res.status).toEqual(200);
-  // });
+  test('getChallenges', async () => {
+    const res = await supertest(app)
+      .get('/challenges')
+      .set('x-access-token', `${process.env.TEST_USER_TOKEN}`);
+    expect(res.status).toEqual(200);
+  });
   // test('getChallenge', async () => {
   //   const res = await supertest(app)
   //     .get('/challenges')
